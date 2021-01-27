@@ -1,0 +1,20 @@
+<body>
+
+<audio id="myAudio" loop="">
+  <source src="https://meet-tea.github.io/test/Never%20Gonna%20Give%20You%20Up%20Original.mp3" type="audio/ogg">
+  <source src="https://meet-tea.github.io/test/Never%20Gonna%20Give%20You%20Up%20Original.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+<script>
+var x = document.getElementById("myAudio"); 
+
+  x.play(); 
+  x.loop = true;
+
+</script>
+
+
+
+</body>
