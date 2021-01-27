@@ -1,18 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
 <body>
 
-<audio id="myAudio" loop="">
+
+<button onclick="myFunction()">Try it</button>
+
+<audio id="myAudio">
   <source src="https://meet-tea.github.io/test/Never%20Gonna%20Give%20You%20Up%20Original.mp3" type="audio/ogg">
   <source src="https://meet-tea.github.io/test/Never%20Gonna%20Give%20You%20Up%20Original.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
+<div id="myDIV">
+<img src="https://meet-tea.github.io/test/R0cbbf1560d8636594134df89d1bb1047.gif" alt="uwu"/>
+</div>
+
+
 
 <script>
-var x = document.getElementById("myAudio"); 
-
-  x.play(); 
+document.getElementById("myDIV").style.display = "none";
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    document.getElementById("myAudio").play();
+    
+  }
+}
 </script>
 
-
-
 </body>
+</html>
+
