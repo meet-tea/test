@@ -26,6 +26,7 @@ function myFunction() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {
     x.style.display = "block";
+    document.getElementById("myAudio").loop = true;
     document.getElementById("myAudio").play();
     
   }
