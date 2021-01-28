@@ -15,19 +15,18 @@
   Your browser does not support the audio element.
 </audio>
 
-<div id="myDIV">
-<img src="https://meet-tea.github.io/test/R0cbbf1560d8636594134df89d1bb1047.gif" alt="uwu"/>
-</div>
+<img src="https://meet-tea.github.io/test/R0cbbf1560d8636594134df89d1bb1047.gif" alt="uwu" id="rickroll"/>
+
   
-<div id="myDIV2"> <video controls><source sec="https://meet-tea.github.io/test/Get%20Stick%20Bugged%20lol.mp4"> </div>
+<video controls id="stickbug"><source sec="https://meet-tea.github.io/test/Get%20Stick%20Bugged%20lol.mp4"><video>
 
 
 
 <script>
-document.getElementById("myDIV").style.display = "none";
-  document.getElementById("myDIV2").style.display = "none";
+document.getElementById("rickroll").style.display = "none";
+  document.getElementById("stickbug").style.display = "none";
 function myFunction() {
-  var x = document.getElementById("myDIV");
+  var x = document.getElementById("rickroll");
   if (x.style.display === "none") {
     x.style.display = "block";
     document.getElementById("myAudio").loop = true;
@@ -36,8 +35,8 @@ function myFunction() {
   }
 }
 function stick() {
-  if (document.getElementById("myDIV2").style.display === "none") {
-    document.getElementById("myDIV2").style.display = "block";
+  if (document.getElementById("stickbug").style.display === "none") {
+    document.getElementById("stickbug").style.display = "block";
   }
 }
 </script>
