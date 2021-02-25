@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+Webhook Url: <input type="text" id="webhookurl" value="" placeholder="put webhook url here">
+<br>
+Webhook Name: <input type="text" id="webhookname" value="" placeholder="put webhook's name that you want here">
+<br>
+What you want the webhook to say: <input type="text" id="webhookmessage" value="" placeholder="message">
+<br>
+Avatar Image link: <input type="text" id="webhookavatar" value="" placeholder="Image link">
+<br>
+<button onclick="sendmessage()">click to send webhook</button>
+<script>
+function sendmessage() {
+var whurl = document.getElementById("webhookurl").value
+
+var msg = {
+    "content": document.getElementById("webhookmessage").value
+}
+
+msg.username = document.getElementById("webhookname").value
+
+msg.avatar_url = document.getElementById("webhookavatar").value
+
+
+fetch(whurl + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(msg)}) .then(a=a.json()).then(console.log)
+}
+</script>
+</body>
+</html>
