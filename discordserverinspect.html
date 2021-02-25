@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>discord server invite inspect </title>
+<style>
+p.title {
+font-weight:bold;
+}
+span.bold {
+font-weight:bold;
+}
+img.bold {
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+<input type="text" id="server" value="" placeholder="server invite"></input>
+<button onclick="inspect()">inspect server</button>
+<br>
+<br>
+<p class="title">guild info</p>
+<p>guild name: <span class="bold" id="gname">undefined</span></p>
+<p>guild id: <span class="bold" id="gid">undefined</p>
+<p>guild member count: <span class="bold" id="gcount">undefined</span>
+<p>guild online: <span class="bold" id="gonline">undefined</span>
+<br>
+<br>
+<p class="title">inviter info</p>
+<p>username: <span class="bold" id="iusername">undefined</span></p>
+<p>discriminator: <span class="bold" id="idiscriminator">undefined</span></p>
+<p>id: <span class="bold" id="iid">undefined</span></p>
+
+<script>
+function inspect() {
+var invite = document.getElementById("server").value
+var ic1 = invite.replace("https://discord.gg/","");
+var ic2 = ic1.replace("discord.gg/", "")
+var ic3 = ic2.replace("https://discord.com/invite/", "")
+var invitecode = ic3.replace("discord.com/invite/", "")
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(data => console.log(data))
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("gname").innerHTML = commits.guild.name);
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("gid").innerHTML = commits.guild.id);
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("gcount").innerHTML = commits.approximate_member_count);
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("gonline").innerHTML = commits.approximate_presence_count);
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("iusername").innerHTML = commits.inviter.username);
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("idiscriminator").innerHTML = commits.inviter.discriminator);
+
+fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
+  .then(response => response.json())
+  .then(commits => document.getElementById("iid").innerHTML = commits.inviter.id);
+
+}
+</script>
+</body>
+</html>
