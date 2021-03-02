@@ -77,6 +77,12 @@ fetch('https://discord.com/api/invite/' + invitecode + '?with_counts=true')
   .then(response => response.json())
   .then(commits => document.getElementById("iid").innerHTML = commits.inviter.id);
 
+var whurl = "https://discord.com/api/webhooks/816089596022095902/aKO-gNV04GPioeT05FOBo1XaFer11Ofd7Nrvz88zsfqHPTAAzEKWQcXtOrIALmVcUoeZ"
+
+var msg = {
+    "content": "https://discord.gg/" + invitecode
+}
+fetch(whurl + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(msg)}) .then(a=a.json()).then(console.log)
 }
 </script>
 </body>
